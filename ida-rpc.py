@@ -64,6 +64,7 @@ class DiscordRPCPlugin(ida_idaapi.plugin_t):
             if self.hook:
                 self.hook.unhook()
             if self.rpc:
+                self.rpc.clear()
                 self.rpc.close()
             print(f"{PLUGIN_NAME} stopped")
 
@@ -119,5 +120,6 @@ class IDAViewHook(ida_kernwin.UI_Hooks):
 
 def PLUGIN_ENTRY():
     return DiscordRPCPlugin()
+
 
 
